@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+  <div class="top-row">
+    <span class="title">LCS — dynamic programming</span>
+  </div>
+
+  <div class="input-row">
+    <div class="inp-group">
+      <span class="inp-label">String X</span>
+      <input class="str-input" id="inX" maxlength="10" value="STONE" oninput="this.value=this.value.toUpperCase()">
+    </div>
+    <div class="inp-group">
+      <span class="inp-label">String Y</span>
+      <input class="str-input" id="inY" maxlength="10" value="LONGEST" oninput="this.value=this.value.toUpperCase()">
+    </div>
+    <button class="go-btn" onclick="init()">Build &#8594;</button>
+  </div>
+
+  <div class="legend">
+    <div class="leg"><span class="l-cur"></span>Current</div>
+    <div class="leg"><span class="l-match"></span>Match</div>
+    <div class="leg"><span class="l-diag"></span>Diagonal source</div>
+    <div class="leg"><span class="l-bt"></span>Backtrack</div>
+    <div class="leg"><span class="l-lcs"></span>LCS char</div>
+  </div>
+
+  <div class="main-area">
+    <div class="left-col">
+      <div class="info-box" id="infoBox">Enter strings and press <b>Build</b>, then <b>Play</b>.</div>
+      <div class="controls">
+        <button class="ctrl primary" onclick="togglePlay()" id="playBtn">&#9654; Play</button>
+        <button class="ctrl" onclick="stepForward()">Step &rarr;</button>
+        <button class="ctrl" onclick="reset()">&#x21BA; Reset</button>
+        <div class="speed-row">Speed<input type="range" min="100" max="1000" value="550" style="width:60px" oninput="delay=1100-this.value"></div>
+        <span class="step-ctr" id="ctr"></span>
+      </div>
+      <div class="tbl-outer"><table id="tbl"></table></div>
+      <div class="result-row" id="res" style="display:none">
+        <div class="badge lcs" id="lcsStr"></div>
+        <div class="badge len" id="lcsLen"></div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="match-panel" id="matchPanel">
+        <div class="mp-title">MATCH BREAKDOWN</div>
+        <div class="mp-empty" id="mpEmpty">Match details<br>appear here<br>when characters<br>align ✓</div>
+        <div id="mpCards"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
